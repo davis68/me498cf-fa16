@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="flec01">flec01</h1>
+<h4 id="objectives">Objectives</h4>
+<ul>
+<li>Understand course policies and resources.</li>
+<li>Explain heuristically how FVM works for fluid flow simulation.</li>
+<li>Apply the basic Fluent workflow to solve problems.</li>
+</ul>
+<h4 id="lecture">Lecture</h4>
+<ul>
+<li>Finite volume method</li>
+</ul>
+<h4 id="labs">Labs</h4>
+<ul>
+<li>Fluent workflow</li>
+</ul>
+<h4 id="order-of-class">Order of Class</h4>
+<ul>
+<li>Course intro 15m 14h00</li>
+<li>FVM lecture 35m 14h15</li>
+<li>Break 5m 14h50</li>
+<li>Workflow lab 25m 14h55</li>
+</ul>
+<h1 id="ansys-fluent-cfd">ANSYS Fluent CFD</h1>
+<p>Fluent is one of the two computational fluid dynamics (CFD) packages included with the ANSYS computational mechanical software suite. Fluent is a Green-Gauss Finite Volume Method with a Cell-Centered formulation (and we'll cover what that means in a few minutes). The major point is the finite volume method (FVM).</p>
+<h2 id="the-finite-volume-method">The Finite Volume Method</h2>
+<p>Computational engineers solve partial differential equations. There are three numerical methods for the solution of partial differential equations we'll compare in this class. Essentially, - the <em>finite difference method</em> (FDM) discretizes the classical form of the PDE; - the <em>finite element method</em> (FEM) discretizes the weak form of the PDE; and - the <em>finite volume method</em> (FVM) discretizes the conservation form of the PDE.</p>
+<p>FVM has the relative advantage of being mathematically straightforward (particularly over some of the more abstruse versions of FEM) and in particular is excellent for problems in which quantity conservation is vital. The following exposition follows <a href="https://link.springer.com/book/10.1007/978-3-319-16874-6">Moukalled2016</a> in broad outlines; <a href="http://www.math.uci.edu/~chenlong/226/FVM.pdf">LongND</a> presents another development.</p>
+<h3 id="the-semi-discretized-equation">The Semi-Discretized Equation</h3>
+<p>The conservation equation for a general scalar <span class="math inline"><em>φ</em></span> may be written,</p>
+<p><br /><span class="math display">$$
+\frac{ \partial \left( \rho \varphi \right) }{ \partial t }
++ \nabla \cdot \left( \rho \vec{v} \varphi \right)
+= \nabla \cdot \left( \Gamma ^{\varphi} \nabla \varphi \right)
++ Q ^{\varphi} \text{,}
+$$</span><br /></p>
+<p>respectively, a transient term, convective term, diffusive term, and source term. <span class="math inline"><em>Γ</em></span> represents the diffusive coefficient. Recollect the physical definitions of the convective and diffusive terms: &quot;Convection is a physical process that occurs in a flow of gas in which some property is transported by the ordered motion of the flow. Diffusion is a physical process that occurs in a flow of gas in which some property is transported by the random motion of the molecules of the gas.&quot;<sup>[<a href="http://www.grc.nasa.gov/WWW/k-12/airplane/nseqs.html">NASA</a>]</sup></p>
+<p>Assuming that the foregoing equation (1) is steady-state (the transient term goes to zero) and (2) applies to a single control volume <span class="math inline"><em>C</em></span>, this becomes</p>
+<p><br /><span class="math display">$$
+\int_{V_C} dV\, \nabla \cdot \left( \rho \vec{v} \varphi \right)
+= \int_{V_C} dV\, \nabla \cdot \left( \Gamma ^{\varphi} \nabla \varphi \right)
++ \int_{V_C} dV\, Q ^{\varphi} \text{.}
+$$</span><br /></p>
+<p>Finally, we apply the Gaussian divergence theorem to replace the volume integrals over the control volume by surface integrals over the control surface:</p>
+<p><br /><span class="math display">$$
+\oint_{\partial V_C} d\vec{S} \cdot \nabla \cdot \left( \rho \vec{v} \varphi \right)
+= \oint_{\partial V_C} d\vec{S} \cdot \left( \Gamma ^{\varphi} \nabla \varphi \right)
++ \int_{V_C} dV\, Q ^{\varphi} \text{.}
+$$</span><br /></p>
+<p>This final form represents the conservative form of the PDE, and FVM focuses on efficiently solving this statement. (This is what we mean by cell-centered FVM; LongND summarizes alternative formulations.) There are two types of quantities represented: surface flux terms and a volume source term.</p>
+<p><img src="./img/fvm-cell-terms.png" width="80%"/></p>
+<p><strong>Figure</strong>. Partial differential equation terms in a finite volume cell.</p>
+<h3 id="conservative-surface-flux">Conservative Surface Flux</h3>
+<p>The key challenge in solving the semi-discretized equation arises from the flux integration requirement over the element faces. For simplicity, we write the convective, diffusive, and total flux terms as</p>
+<p><br /><span class="math display">$$
+\begin{eqnarray}
+\vec{J}^{\varphi,C} &amp; = \rho \vec{v} \varphi \\
+\vec{J}^{\varphi,D} &amp; = - \Gamma^{\varphi} \nabla \varphi \\
+\vec{J}^{\varphi}   &amp; = \vec{J}^{\varphi,C} + \vec{J}^{\varphi,D} \text{.}
+\end{eqnarray}
+$$</span><br /></p>
+<p>Replace the surface integral over C by a summation of flux terms at each face:</p>
+<p><br /><span class="math display">$$
+\oint_{\partial V_C} d\vec{S} \cdot \vec{J}^{\varphi}
+= \sum_{\text{faces}(V_C)} \left( \int_{\text{faces}} \vec{J}^{\varphi}_{\text{face}} \right)
+$$</span><br /></p>
+<p><em>This result conserves quantities extremely well, the primary advantage of FVM.</em></p>
+<h4 id="gaussian-quadrature">Gaussian Quadrature</h4>
+<p>A conventional means of solution for the surface flux exploits the technique of Gaussian quadrature. <em>Gaussian quadrature</em> integrates across the domain by evaluating the integrand at selected points and weighting the values by certain rules. For instance, to evaluate</p>
+<p><br /><span class="math display">∫<sub>−1</sub><sup>+1</sup><em>d</em><em>x</em> <em>e</em><sup>−<em>x</em></sup></span><br /></p>
+<p>with a 2-point quadrature, one calculates as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><span class="math inline"><em>x</em><sub><em>i</em></sub></span></th>
+<th align="left"><span class="math inline"><em>e</em><sup>−<em>x</em></sup></span></th>
+<th align="left"><span class="math inline"><em>w</em><sub><em>i</em></sub></span></th>
+<th align="left"><span class="math inline"><em>w</em><sub><em>i</em></sub><em>e</em><sup>−<em>x</em></sup></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">$-\sqrt{1/3}$</span></td>
+<td align="left"><span class="math inline">0.5614</span></td>
+<td align="left">1</td>
+<td align="left"><span class="math inline">0.5614</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">$+\sqrt{1/3}$</span></td>
+<td align="left"><span class="math inline">1.7813</span></td>
+<td align="left">1</td>
+<td align="left"><span class="math inline">1.7813</span></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><span class="math inline">∑<sub><em>i</em></sub><em>w</em><sub><em>i</em></sub><em>e</em><sup>−<em>x</em></sup> = 2.3427</span></td>
+</tr>
+</tbody>
+</table>
+<p>The absolute error is <span class="math inline">2.3504 − 2.3427 = 0.0077</span>, and the method is far more efficient for most practical integrals than other rules of integration.</p>
+<p>A very similar technique holds for surface integration of the flux.</p>
+<p><img src="./img/fvm-cell-quadrature-face.png" width="80%"/></p>
+<p><strong>Figure</strong>. Surface flux integration with one, two, and three quadrature points per cell face.</p>
+<h3 id="volumetric-source">Volumetric Source</h3>
+<p>The volume integral may be solved using Gaussian quadrature as well over the control volume <span class="math inline"><em>C</em></span>. Although only four integration points are depicted graphically, the number involved may vary by squares as well (1, 4, 9, etc.).</p>
+<p><img src="./img/fvm-cell-quadrature-volume.png" width="80%"/></p>
+<p><strong>Figure</strong>. Volumetric source integration with four quadrature points per control volume (cell).</p>
+<h3 id="further-development">Further Development</h3>
+<p>The finite volume method can proceed along several lines of generalization at this point based on the quadrature rule for discrete integration and the closure of the integration point fluxes in each discrete volume. These are typically chosen to enforce the constraint that the approximation of the fluxes (both advective and diffusive) leaving one cell are the same as those entering its neighbor (via that interface). The FVM, in practice, often uses only a single integration point for its methods, a balance between computational cost and reliability of results.</p>
+<p><img src="./img/fvm-cell.png" width="80%"/></p>
+<p><strong>Figure</strong>. Cell-centered finite volume method terminology.</p>
+<p>Cell-centered schemes require between 2–6× the number of data points that vertex schemes do. On the other hand, they provide a comparable increase in accuracy for the same mesh size<sup>[<a href="http://www.cfd-online.com/Forums/main/1886-fvm-vertex-centered-cell-centered-cell-vertex.html">CFD forum thread</a>]</sup>. (This seems to be something of an open question, being solved by increased total computational power rather than a really tight theoretical argument<sup>[<a href="https://web.archive.org/web/20050516142824/http://techreports.larc.nasa.gov/icase/1995/icase-1995-3.pdf">Venkatakrishnan1995</a>]</sup>.)</p>
+<p>In some sense, FVM is more natural to implement on a unstructured mesh, and offers better stability. You can think of think of FVM as a simplified or zeroth-order FEM formulation via the divergence theorem, with element properties averaged to the cell center or vertices rather than calculated at nodes. The accuracy is somewhat lower, but in many cases you are looking for qualitative behavior instead of quantitative precision.</p>
+<p>If you are interested in knowing more about this topic, ME 412 deals with FVM and the various CFD solution algorithms in the context of heat transfer. AT SCI 502 is also a solid introduction to numerical CFD.</p>
+<p>Finally, a strong caveat to the finite volume method: it will almost always yield a converged solution, but it is incumbent upon you to verify whether this solution is physically meaningful or accurate. FVM also introduces more numerical diffusion than FEM typically (which may require a finer mesh to alleviate).</p>
+<h2 id="computational-fluid-dynamics">Computational Fluid Dynamics</h2>
+<p>The foregoing development, although evocative of fluid flow with its discussion of flux and cells, strictly limited itself to a general conserved quantity <span class="math inline"><em>φ</em></span>. What does <span class="math inline"><em>φ</em></span> become in a fluids simulation?</p>
+<p>Fluid mechanics generally concerns the solution of the Navier–Stokes equations or some coherent simplification of these. These equations collectively circumscribe continuum hydrodynamics. The momentum conservation equations (in cartesian form) are:</p>
+<p><br /><span class="math display">$$
+\begin{align}
+  \rho \left(\frac{\partial u_x}{\partial t} + u_x \frac{\partial u_x}{\partial x} + u_y \frac{\partial u_x}{\partial y} + u_z \frac{\partial u_x}{\partial z}\right)
+    =&amp; -\frac{\partial p}{\partial x} + \mu \left(\frac{\partial^2 u_x}{\partial x^2} + \frac{\partial^2 u_x}{\partial y^2} + \frac{\partial^2 u_x}{\partial z^2}\right) \\
+    &amp; - \mu \frac{\partial}{\partial x} \left( \frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} \right) + \rho g_x \\
+  \rho \left(\frac{\partial u_y}{\partial t} + u_x \frac{\partial u_y}{\partial x} + u_y \frac{\partial u_y}{\partial y}+ u_z \frac{\partial u_y}{\partial z}\right)
+    =&amp; -\frac{\partial p}{\partial y} + \mu \left(\frac{\partial^2 u_y}{\partial x^2} + \frac{\partial^2 u_y}{\partial y^2} + \frac{\partial^2 u_y}{\partial z^2}\right) \\
+    &amp; - \mu \frac{\partial}{\partial y} \left( \frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} \right) + \rho g_y \\
+  \rho \left(\frac{\partial u_z}{\partial t} + u_x \frac{\partial u_z}{\partial x} + u_y \frac{\partial u_z}{\partial y}+ u_z \frac{\partial u_z}{\partial z}\right)
+    =&amp; -\frac{\partial p}{\partial z} + \mu \left(\frac{\partial^2 u_z}{\partial x^2} + \frac{\partial^2 u_z}{\partial y^2} + \frac{\partial^2 u_z}{\partial z^2}\right) \\
+    &amp; - \mu \frac{\partial}{\partial z} \left( \frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} \right) + \rho g_z.
+\end{align}
+$$</span><br /></p>
+<p>The associated mass continuity equation is <br /><span class="math display">$$
+{\partial \rho \over \partial t} + {\partial (\rho u_x ) \over \partial x} + {\partial (\rho u_y) \over \partial y} + {\partial (\rho u_z) \over \partial z} = 0.
+$$</span><br /></p>
+<p>(The right-hand side may be non-zero if multiple phases are involved, as this is where phase transitions express themselves mathematically.)</p>
+<p>There are a number of matters of taste involved in this derivation, like the sign of the stress tensor, but generally this is the equation one needs to simplify and solve<sup>[<a href="https://en.wikipedia.org/wiki/Derivation_of_the_Navier%E2%80%93Stokes_equations">Wikipedia</a>]</sup>.</p>
+<ul>
+<li>Which quantities appear in the Navier–Stokes equations?</li>
+<li>Which quantities in the Navier–Stokes equations are conservative? (In the pressure-based solver, the pressure field is obtained by solving a pressure equation. In the density-based solver, the continuity equation yields a density field. In both cases, the velocity field is obtained from the momentum equations.)</li>
+</ul>
+<p>FVM does very well with directly-expressed quantities such as mass and momentum preservation (but not necessarily second-order properties such as vorticity or kinetic energy).</p>
+<h2 id="fluent-implementation-physical-theory">Fluent Implementation &amp; Physical Theory</h2>
+<p>What other quantities does Fluent model?</p>
+<blockquote>
+For all flows, ANSYS Fluent solves conservation equations for mass and momentum. For flows involving heat transfer or compressibility, an additional equation for energy conservation is solved. For flows involving species mixing or reactions, a species conservation equation is solved or, if the non-premixed combustion model is used, conservation equations for the mixture fraction and its variance are solved.
+</blockquote>
+<p>Fluent also supports compressible flow, turbulence, multiphase flow, magnetohydrodynamics, combustible flow, and other models. You can even designate whether a simulation is Eulerian or Lagrangian. An Eulerian model involves a mesh which the fluid flows through (like a pipe or mesh of control volumes). A Lagrangian model, by contrast, describes the fluid itself flowing and deforming, with no material transfer between cells<sup>[<a href="https://en.wikiversity.org/wiki/Nonlinear_finite_elements/Lagrangian_and_Eulerian_descriptions">Wikiversity</a>]</sup>.</p>
+<p>Turbulence manifests as a cascade of self-similar flows across many scales. Thus to resolve turbulence requires an extremely fine grid, down to the millimeter level in some cases. This is impractical (a <span class="math inline">100 × 100 × 1000</span> grid already contains <span class="math inline">10<sup>7</sup></span> cells with their associated data!). Thus the effect of turbulence is often &quot;bundled&quot; into a kinetic or dissipative energy term with its own governing equation.</p>
+<p>Fluent is probably the best general-purpose CFD program available today. Among competitors, COMSOL excels at pores and low-Reynolds-number flows (Stokes flow—think of lava) and has the reputation of a steep learning curve to perform CFD correctly. OpenFOAM and SU2 are both powerful open-source packages, but they are very demanding of the user since they essentially require you to program your governing equations directly. ANSYS CFX is better for turbomachinery. Fluent tends to be good at large turbulent flows as well.</p>
+<h2 id="fluent-workflow">Fluent Workflow</h2>
+<p>See the associated <a href="./intro.html">step-by-step guide</a> to get started using Fluent.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><p>Alakashi, A. M., Basuno, B., Elkamel, H. T. M. (2015) <a href="http://article.sciencepublishinggroup.com/pdf/10.11648.j.acm.s.2015040101.13.pdf">Comparison between finite volume method (FVM) based on inviscid and viscous flow with experimental and Fluent results</a>. <em>Applied and Computational Mechanics 4</em>: 1-1. pp. 12–17.</p></li>
+<li><p><a href="./refs/ANSYS%20Fluent%20Getting%20Started%20Guide.pdf">Fluent Getting Started Guide</a></p></li>
+<li><p><a href="../../refs/Fluent%20Theory%20Guide.pdf">Fluent Theory Guide</a></p></li>
+<li><p><a href="../../refs/Fluent%20User&#39;s%20Guide.pdf">Fluent User's Guide</a></p></li>
+<li><p>Long, Chen. <a href="http://www.math.uci.edu/~chenlong/226/FVM.pdf">Finite Volume Methods</a>.</p></li>
+<li><p>Moukalled, F., Mangani, L., Darwish, M. <a href="https://link.springer.com/book/10.1007/978-3-319-16874-6">The Finite Volume Method in Computational Fluid Dynamics</a></p></li>
+<li><p>Vanselow, R. (1996) <a href="http://download.springer.com/static/pdf/752/art%253A10.1007%252FBF02276874.pdf?originUrl=http%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2FBF02276874&amp;token2=exp=1442957577~acl=%2Fstatic%2Fpdf%2F752%2Fart%25253A10.1007%25252FBF02276874.pdf%3ForiginUrl%3Dhttp%253A%252F%252Flink.springer.com%252Farticle%252F10.1007%252FBF02276874*~hmac=b448e69fb7a8ea2d4405c5ff2e8b17433c7d189dfdd5705e8b965bd850db60d3">Relations between FEM and FVM applied to the Poisson equation</a>. <em>Computing 57</em>, pp. 93–104.</p></li>
+<li><p>Venkatakrishnan, V. (1995) <a href="https://web.archive.org/web/20050516142824/http://techreports.larc.nasa.gov/icase/1995/icase-1995-3.pdf">A Perspective on Unstructured Grid Flow Solvers</a></p></li>
+</ul>
+</body>
