@@ -1,0 +1,132 @@
+<h1 id="flec02">flec02</h1>
+<h4 id="objectives">Objectives</h4>
+<ul>
+<li>Import a geometry as negative space.</li>
+<li>Understand how meshing works and which figures of merit matter.</li>
+</ul>
+<h4 id="lecture">Lecture</h4>
+<ul>
+<li>Meshing [find]</li>
+</ul>
+<h4 id="labs">Labs</h4>
+<ul>
+<li>Geometry import (guided)</li>
+<li>Geometry definition (mixing tee)</li>
+<li>Meshing</li>
+</ul>
+<h4 id="order-of-class">Order of Class</h4>
+<ul>
+<li>Geometry lab (CAD) 20m 14h00</li>
+<li>Meshing lecture 20m 14h20 [ANSYS Q&amp;A]</li>
+<li>Break 5m 14h40</li>
+<li>Meshing lab (rec) 20m 14h45</li>
+<li>Geometry lab (tee) 15m 15h05</li>
+</ul>
+<h1 id="preprocessing">Preprocessing</h1>
+<p>Prior to any simulation solution, you must create the physical model and associated mesh to which boundary conditions will be attached. This procedure is collectively known as <em>preprocessing</em>.</p>
+<h2 id="geometry">Geometry</h2>
+<h3 id="import-geometry">Import geometry</h3>
+<p>Although throughout this course we will use ANSYS <em>DesignModeler</em> to construct models, it is generally easier for you to use a dedicated CAD program to construct nontrivial models. So that you can see this import process and understand some of its difficulties, we will import a part describing a Venturi flow geometry.</p>
+<ul>
+<li><p>Download the file <a href="./data/venturi.zip"><code>venturi</code></a>, and open <code>venturi-1</code>, a SolidWorks model. Open ANSYS Workbench and add the component <code>Mechanical Model</code> to the <code>Project Schematic</code>. Double-click on <code>Geometry</code> to open <em>DesignModeler</em>, where you can <code>File→Import External Geometry File...</code> <code>venturi.sldprt</code>. <code>Generate</code> the imported model, which takes a few seconds as the model is parsed and rendered. You can manipulate and rotate this model now.</p></li>
+<li><p>What do we need to do with this model to make it work as a fluid simulation?</p></li>
+</ul>
+<p>There's a catch! Recall that Fluent requires a description of the <em>negative</em> space, the space through which the fluid will flow. This model file won't work for that, since any mesh will fill the solid portion of the part. Fortunately, most CAD tools include a tool we can use to invert the occupied volume and render the part suitable for CFD simulation: boolean subtraction. In <em>DesignModeler</em>, this is called <code>Enclosure</code>, but it doesn't work properly if there is a lot of external junk to subtract as well. In this case, we need to extract the set of inner surfaces and use them to define a new flow volume first.</p>
+<ul>
+<li>Import the successive <code>venturi</code> files to see the converted internal flow volume.</li>
+</ul>
+<h2 id="meshing">Meshing</h2>
+<p>Meshing is generally a dark art, relying on a number of heuristics as well as a gut feeling for what works and what doesn't.</p>
+<p>Cells are surfaces with centroids, used to track fluxes of conserved quantities across control volumes. &quot;CFD problems usually require discretization of the problem into a large number of cells/gridpoints (millions and more), therefore cost of the solution favors simpler, lower order approximation within each cell.&quot; (Wikipedia) [FVM cells are also good for unstructured meshing.]</p>
+<p>ANSYS has several meshing tools. The following discussion refers to the ANSYS Meshing tool, NOT the ANSYS Fluent Meshing tool.</p>
+<h3 id="meshing-techniques">Meshing Techniques</h3>
+<p>Many techniques are utilized to generate meshes. Although we'll cover these in more detail with Abaqus (since you can tweak things more), some basic techniques are discussed below. Differences can also be illustrated by examples in the ANSYS slides associated with this lesson.</p>
+<h4 id="tritet-methods">Tri/Tet Methods</h4>
+<p>It is frequently more computationally straightforward to mesh a shape or volume using triangles or tetrahedra, as these can be generated rapidly without reference to the overall alignment or axial structure. Popular methods for generating triangles and tetrahedra are:</p>
+<p><em>Quad-tree/Oct-tree</em>. A shape or volume is progressively subdivided by squares or cubes in the neighborhood of geometric features until the desired resolution is reached. Then triangles or tetrahedra are generated from the intersection of the surface with the mesh skeleton. Surface facets may not directly reflect geometric features as a result. ANSYS Meshing does not support this method but it is occasionally used in third-party meshing packages.</p>
+<div class="figure">
+<img src="./img/octree.jpg" />
+
+</div>
+<p><em>Advancing-Front</em>. Mesh seeds are present at the boundaries and new elements are progressively added throughout the domain volume in a traveling wave. This is commonly used to generate unstructured meshes. Difficulties can arise where the advancing fronts from different sides meet, as well as when parallel lines are desired near domain boundaries. ANSYS Meshing supports this technique.</p>
+<h4 id="quadhex-methods">Quad/Hex Methods</h4>
+<p>Structured meshes are generally constructed of quadrilateral or hexahedral cells. These can be generated in a few ways:</p>
+<p><em>Structured Grid Generation</em>. A regular array of grid points is transformed by a mathematical mapping onto the domain. This is used with quadrilateral or hexahedral elements to generate a structured mesh. In three dimensions, the face mapping may be swept along the axis or a three-dimensional mapping may be applied directly. ANSYS Meshing supports this technique.</p>
+<p><em>Indirect</em>. An unstructured tri/tet mesh is generated first, then either subdivided or combined to generate a quad/hex mesh. It is not clear whether ANSYS Meshing supports this technique, but it is likely employed at least near transitions where one mesh is stitched to another.</p>
+<div class="figure">
+<img src="./img/quadindirect1.jpg" />
+
+</div>
+<div class="figure">
+<img src="./img/quadindirect2.jpg" />
+
+</div>
+<h4 id="mesh-postprocessing">Mesh Postprocessing</h4>
+<p>Once a candidate mesh has been generated, it often requires some adjustment before it can be used for an optimal CFD calculation:</p>
+<ul>
+<li>smoothing: the removal of sharp edges and transitions, which can create unnatural concentrations or flow discontinuities</li>
+<li>cleanup: improvements in element shape, such as those obtained by swapping diagonals between four points (two tris)</li>
+<li>refinement: identification of insufficiently fine areas to be remeshed at higher resolution</li>
+<li>reordering: changing the nodal order such that memory accesses (for neighboring cells) are improved (Fluent, <em>Mesh→Reorder→Domains</em>)</li>
+</ul>
+<h3 id="mesh-statistics">Mesh Statistics</h3>
+<p>There are several figures of merit available for assessing the suitability of a mesh. Unfortunately, there are valid exceptions to nearly all of these rules of thumb! So keep in mind that having high-quality mesh statistics does not equate to having a good mesh, and other considerations like the overall resolution, the distribution of elements, and the application need to be included.</p>
+<p>Let's first play a game, judging meshes. You haven't learnt yet what makes a mesh good or bad, so let's see how well your intution works.</p>
+<ul>
+<li>Which mesh looks better to you? Why? When would the circumstances alter the judgment?</li>
+</ul>
+<p>TODO coarse hyperrefined narrow boundary layer cells too high transition from coarse to fine unstructured next to structured Minimize grid skewness near boundary</p>
+<p>flec02 workbench has some good examples</p>
+<ul>
+<li>In the meshing tool, access mesh statistics in the main menu: <em>Mesh→Statistics→Mesh Metrics</em>.</li>
+</ul>
+<p>The following quantities are available:</p>
+<ul>
+<li><p><em>Element Quality</em>: area or volume over sum of the square of the edge lengths. EQ measures how far elements are from being perfect. For example, a value of 1 indicates a perfect tetrahedron or cube, whereas 0 means a terrible element.</p></li>
+<li><p><em>Aspect ratio</em>: basically ratio of the longest edge to the shortest edge (actual calculation more complicated); AR should not exceed 100.</p></li>
+<li><p><em>Skewness</em>: determines how close to ideal (i.e., equilateral or equiangular) a face or cell is.</p></li>
+<li><p><em>Orthogonal quality</em>: similar to skewness on a reverse scale.</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Unacceptable</th>
+<th align="center">Bad</th>
+<th align="center">Acceptable</th>
+<th align="center">Good</th>
+<th align="center">Very good</th>
+<th align="center">Excellent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Skewness</td>
+<td align="center">0.98-1.00</td>
+<td align="center">0.95-0.97</td>
+<td align="center">0.80-0.94</td>
+<td align="center">0.50-0.80</td>
+<td align="center">0.25-0.50</td>
+<td align="center">0-0.25</td>
+</tr>
+<tr class="even">
+<td align="left">OQ</td>
+<td align="center">0-0.001</td>
+<td align="center">0.001-0.10</td>
+<td align="center">0.10-0.20</td>
+<td align="center">0.20-0.69</td>
+<td align="center">0.70-0.95</td>
+<td align="center">0.95-1.00</td>
+</tr>
+</tbody>
+</table>
+<p>(For visual examples of each of these, check the ANSYS slides.)</p>
+<p>Exceptions to these rules thumb include the avoidance of overly coarse meshes; boundary layers (which may permissibly have high AR elements); and areas with high curvature.</p>
+<ul>
+<li><p>In Fluent, check the mesh at <em>General→Check</em>.</p></li>
+<li><p>access mesh diagnostics in the main menu: <em>Mesh→Statistics→Mesh Diagnostics</em>.</p></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="http://web.archive.org/web/20090327042655/http://andrew.cmu.edu/user/sowen/survey/index.html">A Survey of Unstructured Mesh Generation Technology</a></li>
+</ul>
