@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="flec03">flec03</h1>
+<h4 id="objectives">Objectives</h4>
+<ul>
+<li>Construct a composite geometry using boolean operations.</li>
+<li>Utilize physics coupling to explore multiple aspects of a problem.</li>
+</ul>
+<h4 id="lecture">Lecture</h4>
+<ul>
+<li>Coupling</li>
+</ul>
+<h4 id="labs">Labs</h4>
+<ul>
+<li>Thermal coupling (Boussinesq, mixing tee)</li>
+<li>Postprocessing</li>
+<li>Geometry construction (guided, bent pipe)</li>
+<li>Geometry construction (truck body)</li>
+</ul>
+<h4 id="order-of-class">Order of Class</h4>
+<ul>
+<li>Coupling lecture 20m 14h00</li>
+<li>Coupling lab 20m 14h40</li>
+<li>Break 5m 14h45</li>
+<li>Geometry demo (com) 10m 14h50</li>
+<li>Geometry labs 20m 15h00</li>
+</ul>
+<h1 id="coupling-physics">Coupling Physics</h1>
+<blockquote>
+<p>The strategies used to solve coupled sets of physics equations can be generally categorized as loose coupling and tight coupling. In loose coupling, the individual physics in a coupled problem are solved individually, keeping the solutions for the other physics fixed. After a solution is obtained for an individual physics, it is transferred to other physics that depend on it, and solutions are obtained for those physics.</p>
+<p>These fixed-point iterations are repeated until convergence is obtained. If there is not a strong two-way feedback between the physics involved, convergence can be obtained quickly with a minimal number of loose-coupling iterations. An advantage of this approach is that it allows for independent codes to be coupled with relatively minor modifications to those codes, and they can each use their own solution strategies that are tailored for their solution domain. The disadvantage of loose coupling is that if there is strong two-way feedback between the physics, that approach can have an unacceptably slow convergence rate and is more likely to encounter convergence difficulty.</p>
+<p>In tight coupling solution methods, a single system of equations is assembled and solved for the full set of coupled physics. The nonlinear iterations operate on the full system of equations simultaneously, taking into account the interactions between the equations for the coupled physics in each iteration. In cases where there is strong coupling between the physics, this approach can have faster convergence rates than loose coupling. The primary disadvantage of this approach is that it necessitates tighter coordination between the codes to solve the individual physics.</p>
+https://inldigitallibrary.inl.gov/sti/5842302.pdf
+</blockquote>
+<h2 id="energy-equation">Energy Equation</h2>
+<p><br /><span class="math display">$$
+\frac{\partial \left( \rho E \right)}{\partial t}
++ \nabla \cdot \left( \vec{v} \left( \rho E + p \right) \right)
+= \nabla \cdot \left( k_\text{eff} \nabla T - \sum_j h_j \vec{J}_j + \left( \overline{\overline{\tau_\text{eff}}} \cdot \vec{v} \right) \right)
++ Q_\text{heat}
+$$</span><br /></p>
+<p>(conduction, species diffusion [enthalpy transport], viscous dissipation)</p>
+<p><span class="math inline"><em>Q</em><sub>heat</sub></span> includes radiation, chemical reaction, interphase energy source/sink</p>
+<p>Energy <span class="math inline"><em>E</em></span> is defined per unit mass as</p>
+<p><br /><span class="math display">$$
+E
+= h - \frac{p}{\rho} + \frac{\left| \vec{v} \right|^2}{2}
+$$</span><br /></p>
+<p>(enthalpy, pressure work, kinetic energy)</p>
+<p>wall boundary conditions</p>
+<p>conjugate heat transfer</p>
+<p>http://www.engr.uconn.edu/~barbertj/CFD%20Training/Fluent/6%20Heat%20Transfer%20Modeling.pdf</p>
+<blockquote>
+The Boussinesq approximation (pronounced: [businɛsk], named for Joseph Valentin Boussinesq) is used in the field of buoyancy-driven flow (also known as natural convection). It states that density differences are sufficiently small to be neglected, except where they appear in terms multiplied by g, the acceleration due to gravity.
+</blockquote>
+</body>
