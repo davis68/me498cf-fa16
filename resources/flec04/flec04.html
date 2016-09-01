@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="flec04">flec04</h1>
+<h4 id="objectives">Objectives</h4>
+<ul>
+<li>Understand the types of available boundary conditions and their applications.</li>
+</ul>
+<h4 id="lecture">Lecture</h4>
+<ul>
+<li>Boundary conditions</li>
+</ul>
+<h4 id="labs">Labs</h4>
+<ul>
+<li>Complicated geometries (guided)</li>
+<li>Boundary condition comparison</li>
+<li>External flow (Ahmed car body)</li>
+<li>Internal flow (tube bank)</li>
+</ul>
+<h4 id="order-of-class">Order of Class</h4>
+<ul>
+<li>Comp. geom. lab 10m 14h00</li>
+<li>BC lecture 15m 14h10</li>
+<li>Internal lab 25m 14h25</li>
+<li>External lab 25m 14h50</li>
+</ul>
+<h1 id="boundary-conditions">Boundary Conditions</h1>
+<p><strong>Why defining boundary conditions?</strong></p>
+<p>Information must be provided on the boundaries so that the governing PDEs have a unique solution.</p>
+<p>Defining boundary conditions involves identifying the location of the boundaries and supplying information at the boundaries.</p>
+<p>Fluent offers a number of choices of boundary types to accommodate various availability of information.</p>
+<ul>
+<li><strong>Velocity Inlet</strong>
+<ul>
+<li>Specifies a uniform velocity profile at the boundary</li>
+<li>Other properties can also be defined such as temperature</li>
+<li>Only for incompressible flow</li>
+<li><code>Supersonic/Initial Gauge Pressure</code> defines the static pressure where flow is supersonic or is ignored if subsonic. It will also be used to initialize solution</li>
+</ul></li>
+<li><strong>Pressure Inlet</strong>
+<ul>
+<li>Specifies the gauge total pressure</li>
+<li>Suitable for compressible and incompressible flows</li>
+<li>Velocity and static pressure are calculated (Bernoulli's equation for incompressible flow and isentropic relations for compressible flow)</li>
+<li><code>Supersonic/Initial Gauge Pressure</code> same as in velocity inlet</li>
+</ul></li>
+<li><strong>Mass Flow Inlet</strong>
+<ul>
+<li>Specifies a uniform mass flow rate at the boundary</li>
+<li>Generally intended for compressible flows but can be used on incompressible flows as well</li>
+</ul></li>
+<li><strong>Pressure Outlet</strong>
+<ul>
+<li>Specifies the static pressure of the environment into which flow exhausts</li>
+</ul></li>
+<li><strong>Outflow</strong>
+<ul>
+<li>No pressure or velocity information is required</li>
+<li>Solution at the boundary is extrapolated from interior assuming zero normal flux</li>
+<li>Need <code>Flow Rate Weighting</code> in case of multiple outflow boundaries</li>
+</ul></li>
+<li><strong>Pressure Far-field</strong>
+<ul>
+<li>Models a free-stream compressible flow at infinity</li>
+<li>Specifies static pressure and Mach number</li>
+</ul></li>
+<li><strong>Symmetric and Axisymmetric Boundary</strong></li>
+<li><strong>Periodic Boundary</strong>
+<ul>
+<li>Rotational periodicity
+<ul>
+<li>dP = 0 across periodic planes</li>
+</ul></li>
+<li>Translational periodicity
+<ul>
+<li>Models fully developed flow conditions</li>
+<li>Specifies either dP or mass flow rate per period</li>
+</ul></li>
+</ul></li>
+</ul>
+</body>
