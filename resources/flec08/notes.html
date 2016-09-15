@@ -1,0 +1,65 @@
+<h1 id="flec08">flec08</h1>
+<h4 id="objectives">Objectives</h4>
+<ul>
+<li>Calculate drag on a body.</li>
+<li>Understand the Fluent scripting environment (TUI, Cortex, Scheme).</li>
+<li>Use validation and verification concepts on a simulation.</li>
+</ul>
+<h4 id="lecture">Lecture</h4>
+<ul>
+<li>Verification and validation (V&amp;V)</li>
+<li>Monitors</li>
+<li>Scripting</li>
+</ul>
+<h4 id="labs">Labs</h4>
+<ul>
+<li>Drag (truck wake)</li>
+<li>Scripting</li>
+<li>V&amp;V</li>
+</ul>
+<h4 id="order-of-class">Order of Class</h4>
+<ul>
+<li>V&amp;V lecture 20m 14h00</li>
+<li>Monitors lecture 5m 14h20</li>
+<li>Drag/scripting lab 15m 14h25</li>
+<li>Scripting lecture 10m 14h35</li>
+<li>V&amp;V lab 35m 14h45</li>
+</ul>
+<h1 id="verification-and-validation">Verification and Validation</h1>
+<ul>
+<li>Is a converged solution correct?</li>
+<li>How can you tell if a solution is correct?</li>
+<li><p>What factors can you control? [grid, numerics, BCs, physics]</p></li>
+<li><p>See handout.</p></li>
+</ul>
+<p>http://support.esi-cfd.com/esi-users/convergence/</p>
+<h2 id="monitors">Monitors</h2>
+<ul>
+<li>What are residuals?</li>
+<li>Where have we used (and which) other monitors? [transient-&gt;mass flow rate, airfoil-&gt;drag]</li>
+</ul>
+<p>The standard residuals in Fluent can converge without converging your simulation. For instance, they may still be fluctuating or they may be periodic, in which case your &quot;converged&quot; solution isn't.</p>
+<p>Monitor points track the values of key variables at specific locations in the flow volume. This affords you new ways of tracking convergence. Surface monitors (Monitors → Create... (Surface Monitors)) are also useful for factors like temperature.</p>
+<ul>
+<li>Why don't values converge uniformly?</li>
+<li>Where will they converge most quickly? Most slowly? [smallest flow structures]</li>
+<li>What types of spots are good to watch? [boundary layers, but be careful of velocity monitors against walls!]</li>
+</ul>
+<p>A drag monitor requires certain <em>Reference Values</em>: free stream velocity and projected surface area. Set <code>drag</code> under <em>Monitors</em>.</p>
+<p>The best drag coefficient calculations require the second-order solver as well as a drag monitor. You'll need to set a reference value for the cross-sectional area (presented to the flow) and the free-stream velocity.</p>
+<p><strong>20.3.4.3. Differentiable Limiter</strong></p>
+<blockquote>
+One disadvantage with non-differentiable limiters is that they tend to stall the apparent residual’s convergence after a few orders of reduction in residual magnitude. Note that this does not mean that the solution is not converging, but rather the solution continues to converge while the residuals are stalling. This annoying behavior can be directly traced to the non-differentiable nature of the limiting functions. Therefore, the differentiable limiter uses a smooth function to impose the monotonicity condition while allowing the residuals to converge. [Fluent has a differentiable limiter available.]
+</blockquote>
+<h1 id="scripting">Scripting</h1>
+<p>Ways of controlling/scripting Fluent:</p>
+<ul>
+<li>Graphical User Interface</li>
+<li><p>Text User Interface</p></li>
+<li>transcript = record of everything (commands, messages)</li>
+<li><p>journal = record of user interface actions [replayable]</p></li>
+<li><p>See handout.</p></li>
+</ul>
+<h4 id="example-controlling-warning-messages">Example: Controlling warning messages</h4>
+<p>Throughout some calculations, Fluent displays a warning in the console regarding reversed flow at the outlets. This behavior is expected in this case since air is redirected to the outlets, creating small regions of recirculation.</p>
+<p>This warning message can be switched off by setting the <code>solve/set/flow-warnings</code> text user interface (TUI) command to <code>no</code> in the console.</p>
