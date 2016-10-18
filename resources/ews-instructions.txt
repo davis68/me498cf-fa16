@@ -1,0 +1,6 @@
+Locate the file `abaqus_v6.env`, by default in `C:\SIMULIA\Abaqus\6.14\SMA\site`.
+
+The last two lines should look like this to use the research set.  (The line `academic=teaching` is commented out.)
+
+    abaquslm_license_file="1721@abaqus.webstore.illinois.edu
+    #academic=TEACHING
