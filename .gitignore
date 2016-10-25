@@ -1,3 +1,5 @@
 .DS_Store
 *.xcf
 .gitignore
+*.wbpj
+*_files
