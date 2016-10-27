@@ -1,0 +1,851 @@
+<list>
+  <org.gridchem.service.beans.JobBean>
+    <id>115833</id>
+    <name>discbrake_std_cax4t</name>
+    <localId>2978804</localId>
+    <systemName>Comet</systemName>
+    <hostName>comet.sdsc.xsede.org</hostName>
+    <softwareName>abaqus</softwareName>
+    <queueName>compute</queueName>
+    <userId>518</userId>
+    <experimentName>me498ca1</experimentName>
+    <workDir>/home/gridchem/davis68/tempdirs/tempdirWqh3wFy</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>1</requestedCpus>
+    <requestedCpuTime>
+      <time>19800000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2016-06-06 11:57:29.0</startTime>
+    <stopTime class="sql-timestamp">2016-06-06 11:57:29.0</stopTime>
+    <usedCpus>1</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>0</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2016-06-06 14:55:58.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>uic151</allocationName>
+    <status>FINISHED</status>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>115592</id>
+    <name>brake3db</name>
+    <localId>2935692</localId>
+    <systemName>Comet</systemName>
+    <hostName>comet.sdsc.xsede.org</hostName>
+    <softwareName>abaqus</softwareName>
+    <queueName>compute</queueName>
+    <userId>518</userId>
+    <experimentName>me498ca1</experimentName>
+    <workDir>/home/gridchem/davis68/tempdirs/tempdirRY3EaXE</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>1</requestedCpus>
+    <requestedCpuTime>
+      <time>19800000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2016-06-03 14:00:18.0</startTime>
+    <stopTime class="sql-timestamp">2016-06-03 14:00:48.0</stopTime>
+    <usedCpus>1</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>0</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2016-06-03 17:00:04.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>uic151</allocationName>
+    <cost>0.00833333333333333</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>115590</id>
+    <name>brake3da</name>
+    <localId>2934798</localId>
+    <systemName>Comet</systemName>
+    <hostName>comet.sdsc.xsede.org</hostName>
+    <softwareName>abaqus</softwareName>
+    <queueName>compute</queueName>
+    <userId>518</userId>
+    <experimentName>me498ca1</experimentName>
+    <workDir>/home/gridchem/davis68/tempdirs/tempdirCzqjZxx</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>1</requestedCpus>
+    <requestedCpuTime>
+      <time>19800000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2016-06-03 13:42:46.0</startTime>
+    <stopTime class="sql-timestamp">2016-06-03 13:43:35.0</stopTime>
+    <usedCpus>1</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>0</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2016-06-03 16:36:03.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>uic151</allocationName>
+    <cost>0.0136111111111111</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>115584</id>
+    <name>brake3d</name>
+    <localId>2934701</localId>
+    <systemName>Comet</systemName>
+    <hostName>comet.sdsc.xsede.org</hostName>
+    <softwareName>abaqus</softwareName>
+    <queueName>compute</queueName>
+    <userId>518</userId>
+    <experimentName>me498ca1</experimentName>
+    <workDir>/home/gridchem/davis68/tempdirs/tempdirJWfLSn4</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>1</requestedCpus>
+    <requestedCpuTime>
+      <time>19800000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2016-06-03 13:38:01.0</startTime>
+    <stopTime class="sql-timestamp">2016-06-03 13:39:02.0</stopTime>
+    <usedCpus>1</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>0</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2016-06-03 16:32:22.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>uic151</allocationName>
+    <cost>0.0169444444444444</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>115581</id>
+    <name>brake3d</name>
+    <localId>2562108</localId>
+    <systemName>Gordon</systemName>
+    <hostName>gordon.sdsc.edu</hostName>
+    <softwareName>abaqus</softwareName>
+    <queueName>normal</queueName>
+    <userId>518</userId>
+    <experimentName>me498ca1</experimentName>
+    <workDir>/home/gridchem/davis68/tempdirs/tempdirggXEYEb</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>1</requestedCpus>
+    <requestedCpuTime>
+      <time>19800000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2016-06-03 13:26:34.0</startTime>
+    <stopTime class="sql-timestamp">2016-06-03 13:27:05.0</stopTime>
+    <usedCpus>1</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>0</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2016-06-03 16:26:17.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>uic151</allocationName>
+    <cost>0.00861111111111111</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>115578</id>
+    <name>abaqus_brake</name>
+    <localId>2562090</localId>
+    <systemName>Gordon</systemName>
+    <hostName>gordon.sdsc.edu</hostName>
+    <softwareName>abaqus</softwareName>
+    <queueName>normal</queueName>
+    <userId>518</userId>
+    <experimentName>me498ca1</experimentName>
+    <workDir>/home/gridchem/davis68/tempdirs/tempdirp5mJova</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>1</requestedCpus>
+    <requestedCpuTime>
+      <time>19800000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2016-06-03 13:07:07.0</startTime>
+    <stopTime class="sql-timestamp">2016-06-03 13:07:38.0</stopTime>
+    <usedCpus>1</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>0</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2016-06-03 16:06:57.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>uic151</allocationName>
+    <cost>0.00861111111111111</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>103568</id>
+    <name>default_job</name>
+    <localId>2348623</localId>
+    <systemName>Gordon</systemName>
+    <hostName>gordon.sdsc.edu</hostName>
+    <softwareName>abaqus</softwareName>
+    <queueName>normal</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/home/gridchem/davis68/tempdirs/tempdir0vMQh7T</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>4</requestedCpus>
+    <requestedCpuTime>
+      <time>19800000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2015-12-01 12:56:53.0</startTime>
+    <stopTime class="sql-timestamp">2015-12-01 12:57:02.0</stopTime>
+    <usedCpus>4</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>0</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2015-12-01 15:56:42.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>uic151</allocationName>
+    <cost>0.01</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>38122</id>
+    <name>udft-huge</name>
+    <localId>269014</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdirSIguKQw</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>192</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-06-05 14:46:31.0</startTime>
+    <stopTime class="sql-timestamp">2012-06-05 14:48:56.0</stopTime>
+    <usedCpus>192</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>2</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-06-05 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>7.73333333333333</cost>
+    <status>RUNTIME_ERROR</status>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37482</id>
+    <name>alpha3</name>
+    <localId>262474</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdirrYROVB4</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>64</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-17 09:17:16.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-17 09:17:56.0</stopTime>
+    <usedCpus>64</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>0</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-17 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>0.711111111111111</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37474</id>
+    <name>alpha</name>
+    <localId>262464</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdira3BnyT8</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>64</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-16 16:52:33.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-16 16:53:21.0</stopTime>
+    <usedCpus>64</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>0</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-16 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>0.853333333333333</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37475</id>
+    <name>alpha</name>
+    <localId>262465</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdirxjVgfSX</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>64</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-16 16:54:39.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-16 16:55:20.0</stopTime>
+    <usedCpus>64</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>0</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-16 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>0.728888888888889</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37476</id>
+    <name>alpha2</name>
+    <localId>262466</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdir2UG4nWj</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>64</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-16 16:56:42.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-16 16:57:23.0</stopTime>
+    <usedCpus>64</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>0</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-16 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>0.728888888888889</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37433</id>
+    <name>gamma-+0.15</name>
+    <localId>262411</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdirq28RR1i</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>64</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-13 09:48:24.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-13 09:49:00.0</stopTime>
+    <usedCpus>64</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>0</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-13 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>0.64</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37434</id>
+    <name>gamma-+0.20</name>
+    <localId>262412</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdirkJ5pLCe</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>1</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-13 09:52:29.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-13 09:52:46.0</stopTime>
+    <usedCpus>1</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>0</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-13 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>0.00472222222222222</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37435</id>
+    <name>gamma-+0.25</name>
+    <localId>262413</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdirBdEb9pQ</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>64</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-13 09:56:32.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-13 10:00:14.0</stopTime>
+    <usedCpus>64</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>2</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-13 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>3.94666666666667</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean[8]/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37436</id>
+    <name>gamma-+0.20</name>
+    <localId>262414</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdirExLR74a</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>64</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-13 10:01:07.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-13 10:05:20.0</stopTime>
+    <usedCpus>64</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>3</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-13 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>4.49777777777778</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean[8]/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37403</id>
+    <name>gamma-+0.10</name>
+    <localId>262293</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdirS6EZQsr</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>192</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-10 16:40:51.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-10 16:42:54.0</stopTime>
+    <usedCpus>192</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>2</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-09 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>6.56</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean[8]/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37404</id>
+    <name>gamma-+0.15</name>
+    <localId>262294</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdir5Ov7kwJ</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>192</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-10 16:40:54.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-10 16:42:54.0</stopTime>
+    <usedCpus>192</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>2</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-09 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>6.4</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean[8]/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37405</id>
+    <name>gamma-+0.20</name>
+    <localId>262295</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdirxMXsztt</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>192</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-10 16:40:57.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-10 16:42:55.0</stopTime>
+    <usedCpus>192</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>2</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-09 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>6.29333333333333</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean[8]/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37406</id>
+    <name>gamma-+0.25</name>
+    <localId>262296</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdir4Ci4oZ1</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>192</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-10 16:43:15.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-10 16:44:59.0</stopTime>
+    <usedCpus>192</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>1</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-09 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>5.54666666666667</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean[8]/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37304</id>
+    <name>gamma+0.00</name>
+    <localId>262007</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdirqoGkHUI</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>192</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-03 18:30:20.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-03 18:32:05.0</stopTime>
+    <usedCpus>192</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>2</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-02 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>5.6</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean[8]/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37305</id>
+    <name>gamma+0.05</name>
+    <localId>262008</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdirPLVFoKu</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>192</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-03 18:32:36.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-03 18:34:20.0</stopTime>
+    <usedCpus>192</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>1</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-02 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>5.54666666666667</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean[8]/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37306</id>
+    <name>gamma+0.10</name>
+    <localId>262009</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdireF9uiFH</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>192</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-03 18:34:55.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-03 18:36:41.0</stopTime>
+    <usedCpus>192</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>1</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-02 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>5.65333333333333</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean[8]/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37307</id>
+    <name>gamma+0.15</name>
+    <localId>262010</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdirPlgJPZ6</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>192</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-03 18:37:33.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-03 18:39:17.0</stopTime>
+    <usedCpus>192</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>1</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-02 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>5.54666666666667</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean[8]/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+  <org.gridchem.service.beans.JobBean>
+    <id>37308</id>
+    <name>gamma+0.20</name>
+    <localId>262011</localId>
+    <systemName>Ember</systemName>
+    <hostName>ember.ncsa.illinois.edu</hostName>
+    <softwareName>NWChem</softwareName>
+    <queueName>gridchem</queueName>
+    <userId>518</userId>
+    <experimentName>davis68_proj</experimentName>
+    <workDir>/scratch/users/ccguser/davis68/tempdirs/tempdirqlPRQ9t</workDir>
+    <inputFiles/>
+    <storageResource>NCSA Mass Storage</storageResource>
+    <requestedCpus>192</requestedCpus>
+    <requestedCpuTime>
+      <time>61200000</time>
+      <timezone>America/New_York</timezone>
+    </requestedCpuTime>
+    <startTime class="sql-timestamp">2012-04-03 18:40:11.0</startTime>
+    <stopTime class="sql-timestamp">2012-04-03 18:41:55.0</stopTime>
+    <usedCpus>192</usedCpus>
+    <usedMemory>0</usedMemory>
+    <usedCpuTime>1</usedCpuTime>
+    <usedWallTime>0</usedWallTime>
+    <created class="sql-timestamp">2012-04-02 00:00:00.0</created>
+    <projectName>comm_rizwan_538_CFD</projectName>
+    <allocationName>gf4</allocationName>
+    <cost>5.54666666666667</cost>
+    <status reference="../../org.gridchem.service.beans.JobBean[8]/status"/>
+    <lastUpdated>Oct 27, 2016 1:58:06 PM</lastUpdated>
+    <checkpointable>false</checkpointable>
+    <resubmittable>false</resubmittable>
+    <maxResubmissions>0</maxResubmissions>
+  </org.gridchem.service.beans.JobBean>
+</list>
